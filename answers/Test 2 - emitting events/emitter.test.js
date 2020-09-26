@@ -13,7 +13,7 @@ describe('listening and unlistening', () => {
     expect(emitter.events.fooBar).toContain(callback)
   })
 
-  test('.on() - should register more than one event listener', () => {
+  test.only('.on() - should register more than one event listener', () => {
     const emitter = EventEmitter.create()
     const [callback1, callback2] = [jest.fn(), jest.fn()]
 
@@ -24,7 +24,7 @@ describe('listening and unlistening', () => {
     expect(emitter.events.customEvent).toContain(callback2)
   })
 
-  test('.on() - should NOT register the same listener more than once', () => {
+  test.only('.on() - should NOT register the same listener more than once', () => {
     const emitter = EventEmitter.create()
     const [callback1, callback2] = [jest.fn(), jest.fn()]
 
@@ -37,7 +37,7 @@ describe('listening and unlistening', () => {
     expect(emitter.events.success).toContain(callback2)
   })
 
-  test('.on() - should throw an error if no callback is passed', () => {
+  test.only('.on() - should throw an error if no callback is passed', () => {
     const emitter = EventEmitter.create()
 
     expect(() => {
@@ -45,7 +45,7 @@ describe('listening and unlistening', () => {
     }).toThrow()
   })
 
-  test('.off() - should unregister a specific event listener', () => {
+  test.only('.off() - should unregister a specific event listener', () => {
     const emitter = EventEmitter.create()
     const [callback1, callback2] = [jest.fn(), jest.fn()]
 
@@ -58,13 +58,13 @@ describe('listening and unlistening', () => {
     expect(emitter.events.click).not.toContain(callback1)
   })
 
-  test(".off() - should not throw if event doesn't exist", () => {
+  test.only(".off() - should not throw if event doesn't exist", () => {
     const emitter = EventEmitter.create()
 
     expect(() => emitter.off('some-event')).not.toThrow()
   })
 
-  test('.on() - should return a method which unregisters the passed listener', () => {
+  test.only('.on() - should return a method which unregisters the passed listener', () => {
     const emitter = EventEmitter.create()
     const [callback1, callback2] = [jest.fn(), jest.fn()]
 
@@ -78,7 +78,7 @@ describe('listening and unlistening', () => {
 })
 
 describe('emitting events', () => {
-  test('.emit() - should emit an event and execute all listeners callbacks', () => {
+  test.only('.emit() - should emit an event and execute all listeners callbacks', () => {
     const emitter = EventEmitter.create()
     const [callback1, callback2] = [jest.fn(), jest.fn()]
 
@@ -91,7 +91,7 @@ describe('emitting events', () => {
     expect(callback2).toBeCalledTimes(1)
   })
 
-  test('.emit() - should pass event data, as the second argument, to all callbacks', () => {
+  test.only('.emit() - should pass event data, as the second argument, to all callbacks', () => {
     const emitter = EventEmitter.create()
     const callback = jest.fn()
 
@@ -103,7 +103,7 @@ describe('emitting events', () => {
     )
   })
 
-  test('.emit() - should pass event `type` to all callbacks', () => {
+  test.only('.emit() - should pass event `type` to all callbacks', () => {
     const emitter = EventEmitter.create()
     const callback = jest.fn()
 
@@ -115,7 +115,7 @@ describe('emitting events', () => {
     )
   })
 
-  test('.emit() - should do nothing if event has no callbacks', () => {
+  test.only('.emit() - should do nothing if event has no callbacks', () => {
     const emitter = EventEmitter.create()
 
     expect(() => emitter.emit('keyup')).not.toThrow()
