@@ -10,8 +10,6 @@ Procure se focar mais em solucionar o problema do que em eficiência.
 
 Lembre-se: Sempre há mais de uma maneira de se chegar na resposta correta. E o mais importante se divirta!
 
-
-
 # Event Emitter
 
 The goal of this exercise is to create an event emitter which can listen, unlisten and emit events.
